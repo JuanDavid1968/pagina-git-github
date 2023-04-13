@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ley de Deméter y principio del egoísmo</title>
+</head>
+<body>
+	<center><h1>Ley de Deméter y principio del egoísmo</h1></center>
+	<p>La Ley de Deméter es un principio de diseño de software que establece que un objeto solo debe interactuar con sus amigos cercanos 	y no con objetos desconocidos. Este principio también se conoce como "Principio de la mínima información necesaria" o "Principio del 	acoplamiento suelto".</p>
+
+	<p>La Ley de Deméter se basa en el principio del egoísmo, que establece que un objeto debe ser egoísta en cuanto a la información 	que comparte con otros objetos. En otras palabras, un objeto solo debe compartir información que sea necesaria para cumplir su 	función y no debe revelar más información de la necesaria.</p>
+
+	<p>En la programación orientada a objetos, la Ley de Deméter y el principio del egoísmo son fundamentales para mantener la cohesión 	y el bajo acoplamiento entre objetos. Estos principios se aplican en la relación entre objetos y la comunicación entre ellos.</p>
+
+	<h2>Ley de Deméter en la programación orientada a objetos</h2>
+
+	<p>La Ley de Deméter establece que un objeto solo debe interactuar con sus amigos cercanos y no con objetos desconocidos. En la 	programación orientada a objetos, esto se traduce en que un objeto solo debe conocer y llamar a los métodos de sus objetos asociados 	directamente y no a los métodos de los objetos asociados de sus objetos asociados. En otras palabras, un objeto no debe conocer la 	estructura interna de otro objeto y solo debe llamar a sus métodos públicos.</p>
+
+	<h2>Principio del egoísmo en la programación orientada a objetos</h2>
+	
+	<p>El principio del egoísmo establece que un objeto debe ser egoísta en cuanto a la información que comparte con otros objetos. En 	la programación orientada a objetos, esto se traduce en que un objeto solo debe compartir la información necesaria para cumplir su 	función y no debe revelar más información de la necesaria. Un objeto debe tener un alto grado de privacidad y solo permitir el 	acceso a la información necesaria a través de métodos públicos.</p>
+
+	<p>El objetivo de la Ley de Deméter es reducir el acoplamiento entre objetos y mejorar la modularidad del código. Al seguir este 	principio, se pueden hacer cambios en un objeto sin afectar a otros objetos en el sistema.</p>
+
+	<center><img src= "demeter.png"></center>
+
+	<center><h2>Ejemplo de aplicación de la Ley de Deméter</h2></center>
+
+	<p>Supongamos que tenemos una clase "Persona" que tiene un método "getDireccion()". Si queremos obtener la calle de la dirección de 	una persona, no deberíamos llamar al método "getDireccion()" directamente y luego acceder a la propiedad "calle". En cambio, 	deberíamos tener un método "getCalle()" en la clase "Persona" que nos permita obtener directamente la calle sin tener que conocer la 	estructura interna de la dirección.</p>
+
+	<pre>
+		class Persona {
+	  		private Direccion direccion;
+
+	 	 	public String getCalle() {
+	    	return direccion.getCalle();
+	  		}
+		}
+
+		class Direccion {
+	  		private String calle;
+
+	  		public String getCalle() {
+	    		return calle;
+	  		}
+		}
+	</pre>
+
+	<p>En este ejemplo, la clase "Persona" solo conoce la interfaz pública de la clase "Dirección" y no necesita conocer su estructura 	interna. Esto cumple con la Ley de Deméter y mejora la modularidad del código.</p>
+</body>
+</html>
